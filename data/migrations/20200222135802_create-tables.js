@@ -19,19 +19,28 @@ exports.up = function(knex) {
         .integer("species_id")
         .notNullable()
         .unsigned()
-        .references("species.id");
+        .references("id")
+        .inTable("species")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
     })
     .createTable("zoo_animals", tbl => {
       tbl
         .integer("zoo_id")
         .unsigned()
         .notNullable()
-        .references("zoos_id");
+        .references("id")
+        .inTable("zoos")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
       tbl
         .integer("animal_id")
         .unsigned()
         .notNullable()
-        .references("animals.id");
+        .references("id")
+        .inTable("animals")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
       tbl.primary(["zoo_id", "animal_id"]);
     });
 };
