@@ -44,8 +44,8 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfItExists("employee_tickets")
-    .dropTableIfItExists("tickets")
-    .dropTableIfItExists("employees")
-    .dropTableIfItExists("roles");
+    .dropTableIfExists("employee_tickets")
+    .dropTableIfExists("tickets")
+    .dropTableIfExists("employees")
+    .dropTableIfExists("roles");
 };
